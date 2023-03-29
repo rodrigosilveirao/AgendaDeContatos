@@ -7,12 +7,17 @@ let linhas = '';
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
+    adcionaLinha();
+    atualizaTabela()
+   
+});
 
+function adcionaLinha(){
     const inputNameContact= document.getElementById('nameContact');
     const inputNumberContact= document.getElementById('numberContact');
 
     
-    if(nomes.includes(inputNameContact.value)) {
+    if(numeros.includes(inputNameContact.value)) {
         alert(`O contato ${inputNameContact.value} ja foi inserido!`);
     } else {
 
@@ -29,5 +34,9 @@ form.addEventListener('submit', function(e){
 
     inputNameContact.value ='';
     inputNumberContact.value='';
-});
+}
 
+function atualizaTabela(){
+    const corpoTabela = document.querySelector('tbody');
+    corpoTabela.innerHTML = linhas;
+}
